@@ -1,0 +1,38 @@
+# Prerequisites
+*.d
+ 
+# Object files
+*.o
+*.obj
+*.elf
+
+# Temp Files
+*.tmp
+
+# Log files
+*.log
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# TouchGFX generated files
+# TouchGFX/build
+# TouchGFX/generated/images
+# TouchGFX/generated/fonts
+# TouchGFX/generated/texts
+
+# EWARM project files
+EWARM/STM32F746G-DISCO/Exe
+EWARM/STM32F746G-DISCO/Obj
+EWARM/settings/
+
+# IAR Debug Exe  
+*/Exe/*.sim  
+
+# IAR Debug Obj  
+*/Obj/*.pbd  
+*/Obj/*.pbd.*  
+*/Obj/*.pbi  
+*/Obj/*.pbi.* 
