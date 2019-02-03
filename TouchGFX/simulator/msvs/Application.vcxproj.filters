@@ -163,6 +163,12 @@
     <Filter Include="Source Files\generated\gui_generated\main_screen">
       <UniqueIdentifier>D63048D5-04E7-4798-9F18-6981D4B26A6D</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\main_screen\graph_widget">
+      <UniqueIdentifier>FC14146B-CFFD-4594-9340-69A8951030AF</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\main_screen\graph_widget">
+      <UniqueIdentifier>DCA9776B-C1D3-4963-9134-AD084552C176</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -197,6 +203,24 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\main_screen\MainViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\main_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\main_screen\graph_widget\AbstractGraph.cpp">
+      <Filter>Source Files\gui\main_screen\graph_widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\main_screen\graph_widget\Graph.cpp">
+      <Filter>Source Files\gui\main_screen\graph_widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\main_screen\graph_widget\GraphBelow.cpp">
+      <Filter>Source Files\gui\main_screen\graph_widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\main_screen\graph_widget\GraphDots.cpp">
+      <Filter>Source Files\gui\main_screen\graph_widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\main_screen\graph_widget\GraphLine.cpp">
+      <Filter>Source Files\gui\main_screen\graph_widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\main_screen\graph_widget\PainterVerticalAlpha.cpp">
+      <Filter>Source Files\gui\main_screen\graph_widget</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -636,6 +660,24 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\main_screen\MainViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\main_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\main_screen\graph_widget\AbstractGraph.hpp">
+      <Filter>Header Files\gui\main_screen\graph_widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\main_screen\graph_widget\Graph.hpp">
+      <Filter>Header Files\gui\main_screen\graph_widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\main_screen\graph_widget\GraphBelow.hpp">
+      <Filter>Header Files\gui\main_screen\graph_widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\main_screen\graph_widget\GraphDots.hpp">
+      <Filter>Header Files\gui\main_screen\graph_widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\main_screen\graph_widget\GraphLine.hpp">
+      <Filter>Header Files\gui\main_screen\graph_widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\main_screen\graph_widget\PainterVerticalAlpha.hpp">
+      <Filter>Header Files\gui\main_screen\graph_widget</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

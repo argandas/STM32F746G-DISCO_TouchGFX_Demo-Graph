@@ -18,8 +18,7 @@ KEEP extern const touchgfx::GlyphNode glyphs_Asap_Regular_31_4bpp[] FONT_LOCATIO
     {  1144,  55,  15,  22,  22,   1,  17, 255,   0, touchgfx::GLYPH_DATA_FORMAT_A4 | 0},
     {  1320,  56,  14,  22,  22,   1,  17, 255,   0, touchgfx::GLYPH_DATA_FORMAT_A4 | 0},
     {  1474,  57,  14,  22,  22,   1,  17, 255,   0, touchgfx::GLYPH_DATA_FORMAT_A4 | 0},
-    {  1628,  83,  14,  22,  22,   1,  16, 255,   0, touchgfx::GLYPH_DATA_FORMAT_A4 | 0},
-    {  1782, 101,  15,  17,  17,   1,  17, 255,   0, touchgfx::GLYPH_DATA_FORMAT_A4 | 0},
-    {  1918, 116,   9,  21,  21,   1,  11, 255,   0, touchgfx::GLYPH_DATA_FORMAT_A4 | 0}
+    {  1628,  65,  19,  22,  22,   0,  19, 255,   0, touchgfx::GLYPH_DATA_FORMAT_A4 | 0},
+    {  1848, 100,  15,  24,  24,   1,  18, 255,   0, touchgfx::GLYPH_DATA_FORMAT_A4 | 0}
 };
 

@@ -6,23 +6,24 @@
 #include <touchgfx/hal/Types.hpp>
 #include <touchgfx/Bitmap.hpp>
 
-const uint16_t BITMAP_BG_ID = 0; // Size: 480x272 pixels
-const uint16_t BITMAP_BLACK_ARROW_ID = 1; // Size: 30x17 pixels
-const uint16_t BITMAP_BLACK_ARROW_UP_ID = 2; // Size: 30x17 pixels
-const uint16_t BITMAP_BTN_LONG_ID = 3; // Size: 200x56 pixels
-const uint16_t BITMAP_BTN_LONG_PRESSED_ID = 4; // Size: 200x56 pixels
-const uint16_t BITMAP_COUNTER_BOX_ID = 5; // Size: 152x154 pixels
-const uint16_t BITMAP_DOWN_BTN_ID = 6; // Size: 130x56 pixels
-const uint16_t BITMAP_DOWN_BTN_DISABLED_ID = 7; // Size: 130x56 pixels
-const uint16_t BITMAP_DOWN_BTN_PRESSED_ID = 8; // Size: 130x56 pixels
-const uint16_t BITMAP_ORANGE_ARROW_ID = 9; // Size: 30x17 pixels
-const uint16_t BITMAP_ORANGE_ARROW_UP_ID = 10; // Size: 30x17 pixels
-const uint16_t BITMAP_SMALL_BTN_ID = 11; // Size: 100x56 pixels
-const uint16_t BITMAP_SMALL_BTN_DISABLE_ID = 12; // Size: 100x56 pixels
-const uint16_t BITMAP_SMALL_BTN_PRESSED_ID = 13; // Size: 100x56 pixels
-const uint16_t BITMAP_UP_BTN_ID = 14; // Size: 130x56 pixels
-const uint16_t BITMAP_UP_BTN_DISABLED_ID = 15; // Size: 130x56 pixels
-const uint16_t BITMAP_UP_BTN_PRESSED_ID = 16; // Size: 130x56 pixels
+const uint16_t BITMAP_BACKGROUND_ID = 0; // Size: 480x272 pixels
+const uint16_t BITMAP_BG_ID = 1; // Size: 480x272 pixels
+const uint16_t BITMAP_BLACK_ARROW_ID = 2; // Size: 30x17 pixels
+const uint16_t BITMAP_BLACK_ARROW_UP_ID = 3; // Size: 30x17 pixels
+const uint16_t BITMAP_BTN_LONG_ID = 4; // Size: 200x56 pixels
+const uint16_t BITMAP_BTN_LONG_PRESSED_ID = 5; // Size: 200x56 pixels
+const uint16_t BITMAP_COUNTER_BOX_ID = 6; // Size: 152x154 pixels
+const uint16_t BITMAP_DOWN_BTN_ID = 7; // Size: 130x56 pixels
+const uint16_t BITMAP_DOWN_BTN_DISABLED_ID = 8; // Size: 130x56 pixels
+const uint16_t BITMAP_DOWN_BTN_PRESSED_ID = 9; // Size: 130x56 pixels
+const uint16_t BITMAP_ORANGE_ARROW_ID = 10; // Size: 30x17 pixels
+const uint16_t BITMAP_ORANGE_ARROW_UP_ID = 11; // Size: 30x17 pixels
+const uint16_t BITMAP_SMALL_BTN_ID = 12; // Size: 100x56 pixels
+const uint16_t BITMAP_SMALL_BTN_DISABLE_ID = 13; // Size: 100x56 pixels
+const uint16_t BITMAP_SMALL_BTN_PRESSED_ID = 14; // Size: 100x56 pixels
+const uint16_t BITMAP_UP_BTN_ID = 15; // Size: 130x56 pixels
+const uint16_t BITMAP_UP_BTN_DISABLED_ID = 16; // Size: 130x56 pixels
+const uint16_t BITMAP_UP_BTN_PRESSED_ID = 17; // Size: 130x56 pixels
 
 namespace BitmapDatabase
 {

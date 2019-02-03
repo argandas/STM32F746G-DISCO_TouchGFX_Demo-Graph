@@ -34,6 +34,11 @@ public:
         // Override and implement this function in MainView
     }
 
+    virtual void addValue()
+    {
+        // Override and implement this function in MainView
+    }
+
 protected:
     FrontendApplication& application() {
         return *static_cast<FrontendApplication*>(Application::getInstance());

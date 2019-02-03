@@ -1,0 +1,15 @@
+Converting images
+Compiling TouchGFX/gui/src/main_screen/graph_widget/PainterVerticalAlpha.cpp
+Compiling TouchGFX/gui/src/main_screen/graph_widget/Graph.cpp
+Compiling TouchGFX/gui/src/main_screen/graph_widget/GraphDots.cpp
+Compiling TouchGFX/gui/src/main_screen/graph_widget/AbstractGraph.cpp
+Compiling TouchGFX/gui/src/main_screen/graph_widget/GraphLine.cpp
+Compiling TouchGFX/gui/src/main_screen/graph_widget/GraphBelow.cpp
+Compiling TouchGFX/gui/src/main_screen/MainPresenter.cpp
+Compiling TouchGFX/gui/src/main_screen/MainView.cpp
+Compiling TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp
+Compiling TouchGFX/target/BoardConfiguration.cpp
+Linking TouchGFX/build/bin/target.elf
+gcc/Makefile:335: recipe for target 'TouchGFX/build/bin/target.elf' failed
+gcc/Makefile:331: recipe for target 'generate_assets' failed
+gcc/Makefile:47: recipe for target 'all' failed

@@ -9,6 +9,7 @@ using namespace touchgfx;
 #endif
 
 extern touchgfx::InternalFlashFont& getFont_Asap_Regular_31_4bpp();
+extern touchgfx::InternalFlashFont& getFont_Asap_Regular_15_4bpp();
 
 touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId fontId)
 {
@@ -16,6 +17,8 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId fontId)
     {
     case Typography::DEFAULT:
         return &(getFont_Asap_Regular_31_4bpp());
+    case Typography::GRAPH_Y_VALUE:
+        return &(getFont_Asap_Regular_15_4bpp());
     default:
         return 0;
     }

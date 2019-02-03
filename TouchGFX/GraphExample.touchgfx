@@ -163,7 +163,7 @@
                   {
                     "Type": "TextButtonStyle",
                     "X": 0,
-                    "Y": 10,
+                    "Y": 8,
                     "TextId": "SingleUseId2",
                     "TextRotation": "0",
                     "ColorReleased": {
@@ -236,6 +236,18 @@
               "FunctionName": "decreaseValue",
               "Type": "ActionCustom"
             }
+          },
+          {
+            "InteractionName": "InteractionAdd",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "flexBtnSet",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "addValue",
+              "Type": "ActionCustom"
+            }
           }
         ],
         "Name": "Main",
@@ -256,6 +268,10 @@
       {
         "TextEntryId": "SingleUseId2",
         "IsResource": false
+      },
+      {
+        "TextEntryId": "Graph_y_value",
+        "IsResource": true
       }
     ],
     "Name": "GraphExample",

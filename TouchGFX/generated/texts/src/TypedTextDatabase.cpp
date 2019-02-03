@@ -10,10 +10,12 @@ using namespace touchgfx;
 #endif
 
 extern touchgfx::InternalFlashFont& getFont_Asap_Regular_31_4bpp();
+extern touchgfx::InternalFlashFont& getFont_Asap_Regular_15_4bpp();
 
 const touchgfx::Font* const _fonts[] =
 {
-    &(getFont_Asap_Regular_31_4bpp())
+    &(getFont_Asap_Regular_31_4bpp()),
+    &(getFont_Asap_Regular_15_4bpp())
 };
 
 TEXT_LOCATION_FLASH_PRAGMA
@@ -21,7 +23,8 @@ const touchgfx::TypedText::TypedTextData typedText_database_DEFAULT[] TEXT_LOCAT
 {
     { 0, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
     { 0, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
-    { 0, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR }
+    { 0, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
+    { 1, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR }
 };
 
 

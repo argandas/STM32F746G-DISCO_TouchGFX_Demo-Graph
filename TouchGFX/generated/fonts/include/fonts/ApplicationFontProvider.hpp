@@ -9,6 +9,7 @@
 struct Typography
 {
     static const touchgfx::FontId DEFAULT = 0;
+    static const touchgfx::FontId GRAPH_Y_VALUE = 1;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider

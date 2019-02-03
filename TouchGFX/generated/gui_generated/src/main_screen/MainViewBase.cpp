@@ -53,9 +53,10 @@ MainViewBase::MainViewBase() :
     flexBtnSet.setBitmaps(Bitmap(BITMAP_SMALL_BTN_ID), Bitmap(BITMAP_SMALL_BTN_PRESSED_ID));
     flexBtnSet.setBitmapXY(0, 0);
     flexBtnSet.setText(TypedText(T_SINGLEUSEID2));
-    flexBtnSet.setTextPosition(0, 10, 100, 56);
+    flexBtnSet.setTextPosition(0, 8, 100, 56);
     flexBtnSet.setTextColors(touchgfx::Color::getColorFrom24BitRGB(78, 78, 78), touchgfx::Color::getColorFrom24BitRGB(200, 146, 34));
     flexBtnSet.setPosition(374, 0, 100, 56);
+    flexBtnSet.setAction(flexButtonCallback);
     container1.add(flexBtnSet);
 
     add(backgroundBox);
@@ -86,6 +87,9 @@ void MainViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonConta
     }
     else if (&src == &flexBtnSet)
     {
-
+        //InteractionAdd
+        //When flexBtnSet clicked call virtual function
+        //Call addValue
+        addValue();
     }
 }

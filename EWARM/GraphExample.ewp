@@ -1148,13 +1148,22 @@
         <name>$PROJ_DIR$\..\TouchGFX\generated\fonts\src\ApplicationFontProvider.cpp</name>
       </file>
       <file>
+        <name>$PROJ_DIR$\..\TouchGFX\generated\fonts\src\Font_Asap_Regular_15_4bpp.cpp</name>
+      </file>
+      <file>
         <name>$PROJ_DIR$\..\TouchGFX\generated\fonts\src\Font_Asap_Regular_31_4bpp.cpp</name>
       </file>
       <file>
         <name>$PROJ_DIR$\..\TouchGFX\generated\fonts\src\FontGetters.cpp</name>
       </file>
       <file>
+        <name>$PROJ_DIR$\..\TouchGFX\generated\fonts\src\Kerning_Asap_Regular_15_4bpp.cpp</name>
+      </file>
+      <file>
         <name>$PROJ_DIR$\..\TouchGFX\generated\fonts\src\Kerning_Asap_Regular_31_4bpp.cpp</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\TouchGFX\generated\fonts\src\Table_Asap_Regular_15_4bpp.cpp</name>
       </file>
       <file>
         <name>$PROJ_DIR$\..\TouchGFX\generated\fonts\src\Table_Asap_Regular_31_4bpp.cpp</name>
@@ -1177,6 +1186,9 @@
     </group>
     <group>
       <name>images</name>
+      <file>
+        <name>$PROJ_DIR$\..\TouchGFX\generated\images\src\background.cpp</name>
+      </file>
       <file>
         <name>$PROJ_DIR$\..\TouchGFX\generated\images\src\bg.cpp</name>
       </file>
@@ -1255,6 +1267,27 @@
     </group>
     <group>
       <name>main_screen</name>
+      <group>
+        <name>graph_widget</name>
+        <file>
+          <name>$PROJ_DIR$\..\TouchGFX\gui\src\main_screen\graph_widget\AbstractGraph.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\TouchGFX\gui\src\main_screen\graph_widget\Graph.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\TouchGFX\gui\src\main_screen\graph_widget\GraphBelow.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\TouchGFX\gui\src\main_screen\graph_widget\GraphDots.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\TouchGFX\gui\src\main_screen\graph_widget\GraphLine.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\TouchGFX\gui\src\main_screen\graph_widget\PainterVerticalAlpha.cpp</name>
+        </file>
+      </group>
       <file>
         <name>$PROJ_DIR$\..\TouchGFX\gui\src\main_screen\MainPresenter.cpp</name>
       </file>
