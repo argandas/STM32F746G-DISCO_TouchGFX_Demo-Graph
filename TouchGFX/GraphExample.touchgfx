@@ -1,0 +1,302 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Components": [
+          {
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "Name": "backgroundBox",
+            "X": 0,
+            "Y": 0,
+            "Width": 800,
+            "Height": 480,
+            "Type": "Box",
+            "Visible": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "RelativeFilename": "bg.png",
+            "Alpha": 255,
+            "Name": "backgroundImage",
+            "X": 0,
+            "Y": 0,
+            "Width": 480,
+            "Height": 272,
+            "Type": "Image",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Components": [
+              {
+                "RelativeFilename": "counter_box.png",
+                "Alpha": 255,
+                "Name": "counterBackgroundImage",
+                "X": 111,
+                "Y": 0,
+                "Width": 152,
+                "Height": 154,
+                "Type": "Image",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "TextId1",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Alpha": 255,
+                "AutoSize": false,
+                "LineSpacing": 0,
+                "Wildcard1": {
+                  "TextId": "SingleUseId1",
+                  "UseBuffer": true,
+                  "BufferSize": 3
+                },
+                "Name": "countTxt",
+                "X": 111,
+                "Y": 7,
+                "Width": 152,
+                "Height": 42,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Alpha": 255,
+                "ButtonTrigger": {
+                  "Type": "RepeatButtonTrigger",
+                  "Delay": 250,
+                  "Interval": 100
+                },
+                "ButtonStyles": [
+                  {
+                    "Type": "IconButtonStyle",
+                    "X": 35,
+                    "Y": 19,
+                    "IconReleased": "black_arrow_up.png",
+                    "IconPressed": "orange_arrow_up.png"
+                  },
+                  {
+                    "Type": "ImageButtonStyle",
+                    "X": 0,
+                    "Y": 0,
+                    "LockFlexButtonToImageSize": true,
+                    "ImageReleased": "small_btn.png",
+                    "ImagePressed": "small_btn_pressed.png"
+                  }
+                ],
+                "Name": "flexBtnUp",
+                "X": 5,
+                "Y": 0,
+                "Width": 100,
+                "Height": 56,
+                "Type": "FlexButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Alpha": 255,
+                "ButtonTrigger": {
+                  "Type": "RepeatButtonTrigger",
+                  "Delay": 250,
+                  "Interval": 100
+                },
+                "ButtonStyles": [
+                  {
+                    "Type": "IconButtonStyle",
+                    "X": 35,
+                    "Y": 19,
+                    "IconReleased": "black_arrow.png",
+                    "IconPressed": "orange_arrow.png"
+                  },
+                  {
+                    "Type": "ImageButtonStyle",
+                    "X": 0,
+                    "Y": 0,
+                    "LockFlexButtonToImageSize": true,
+                    "ImageReleased": "small_btn.png",
+                    "ImagePressed": "small_btn_pressed.png"
+                  }
+                ],
+                "Name": "flexBtnDown",
+                "X": 268,
+                "Y": 0,
+                "Width": 100,
+                "Height": 56,
+                "Type": "FlexButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Alpha": 255,
+                "ButtonTrigger": {
+                  "Type": "ClickButtonTrigger"
+                },
+                "ButtonStyles": [
+                  {
+                    "Type": "TextButtonStyle",
+                    "X": 0,
+                    "Y": 10,
+                    "TextId": "SingleUseId2",
+                    "TextRotation": "0",
+                    "ColorReleased": {
+                      "Red": 78,
+                      "Green": 78,
+                      "Blue": 78
+                    },
+                    "ColorPressed": {
+                      "Red": 200,
+                      "Green": 146,
+                      "Blue": 34
+                    }
+                  },
+                  {
+                    "Type": "ImageButtonStyle",
+                    "X": 0,
+                    "Y": 0,
+                    "LockFlexButtonToImageSize": true,
+                    "ImageReleased": "small_btn.png",
+                    "ImagePressed": "small_btn_pressed.png"
+                  }
+                ],
+                "Name": "flexBtnSet",
+                "X": 374,
+                "Y": 0,
+                "Width": 100,
+                "Height": 56,
+                "Type": "FlexButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              }
+            ],
+            "Name": "container1",
+            "X": 0,
+            "Y": 204,
+            "Width": 480,
+            "Height": 68,
+            "Type": "Container",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "IncreaseValue",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "flexBtnUp",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "increaseValue",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "DecreaseValue",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "flexBtnDown",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "decreaseValue",
+              "Type": "ActionCustom"
+            }
+          }
+        ],
+        "Name": "Main",
+        "OverrideDefaultBufferSize": false,
+        "CanvasBufferSize": 0
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "TextEntries": [
+      {
+        "TextEntryId": "TextId1",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "SingleUseId1",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId2",
+        "IsResource": false
+      }
+    ],
+    "Name": "GraphExample",
+    "Resolution": {
+      "Width": 480,
+      "Height": 272
+    },
+    "SelectedColorDepth": 24,
+    "StartupScreenName": "Main",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "../Middlewares/ST/TouchGFX/touchgfx",
+    "UIPath": ".",
+    "ApplicationTemplate": {
+      "Name": "Simulator",
+      "Version": "2.0.0",
+      "Description": "STM32CubeMX Generated Simulator Application Template",
+      "AvailableColorDepths": [
+        24
+      ],
+      "AvailableImageFormats": {
+        "24": {
+          "Opaque": "RGB888",
+          "NonOpaque": "ARGB8888"
+        }
+      },
+      "AvailableResolutions": [
+        {
+          "Width": 480,
+          "Height": 272
+        }
+      ],
+      "PhysicalButtons": [],
+      "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j10",
+      "PostGenerateCommand": "touchgfx update_project --project-file=../EWARM/GraphExample.ewp --gui-group-name=Application/User/TouchGFX/gui --generated-group-name=Application/User/TouchGFX/generated && touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+      "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j10",
+      "RunSimulatorCommand": "build\\bin\\simulator.exe",
+      "CompileTargetCommand": "make -f ../gcc/Makefile -j8",
+      "FlashTargetCommand": "make -f ../gcc/Makefile -j8 flash"
+    }
+  },
+  "Version": "4.10.0",
+  "CreatedBy": "4.10.0"
+}
