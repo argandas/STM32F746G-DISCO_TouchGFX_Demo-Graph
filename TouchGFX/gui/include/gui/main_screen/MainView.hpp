@@ -27,35 +27,39 @@ public:
 
     void handleTickEvent();
     
-    static const int MAX_Y_VALUE = 80;
-    static const int MIN_Y_VALUE = -20;
+    static const int MAX_Y_VALUE = 60;
+    static const int MIN_Y_VALUE = -60;
     static const int MAX_Y_DELTA = 20;
     
     static const int GRID_MAX_VALUE_Y = MAX_Y_VALUE;
     static const int GRID_MIN_VALUE_Y = MIN_Y_VALUE;
     static const int GRID_DIV_VALUE_Y = MAX_Y_DELTA;
-    static const int GRID_NUM_LINES_Y = ((MAX_Y_VALUE - MIN_Y_VALUE) / MAX_Y_DELTA);
+    static const int GRID_NUM_LINES_Y = ((MAX_Y_VALUE - MIN_Y_VALUE) / MAX_Y_DELTA) + 1;
     
-    static const int MAX_Y_VALUE_VALID =  60;
-    static const int MIN_Y_VALUE_VALID = -10;
+    static const int MAX_Y_VALUE_VALID =  35;
+    static const int MIN_Y_VALUE_VALID = -30;
     
     static const int MAX_X_VALUE = 228;
     static const int MAX_X_DELTA = MAX_X_VALUE / Graph::NUMBER_OF_POINTS;
 
-
 protected:
     Box graphGridLines[GRID_NUM_LINES_Y];
-    Box graphLimitsLines[2];
-    
     TextAreaWithOneWildcard graphYValues[GRID_NUM_LINES_Y];
     Unicode::UnicodeChar graphYValuesbuf[GRID_NUM_LINES_Y][5];
 
+    Box graphLimitsLines[2];
+    TextAreaWithOneWildcard graphLimitYValues[2];
+    Unicode::UnicodeChar graphLimitYValuesbuf[2][5];
+    
     Graph primaryGraph;
     
     void DrawGraphGridLines(colortype color);
+    void DrawGraphGridLine(int value, Box* line, TextAreaWithOneWildcard* TextArea, Unicode::UnicodeChar* buff, colortype color);
     
     int count = 0;
     uint8_t graphX = 0;
+    
+    int tickCount = 0;
 
 private:
 

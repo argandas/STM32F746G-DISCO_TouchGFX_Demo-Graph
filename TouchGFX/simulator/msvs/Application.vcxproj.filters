@@ -679,6 +679,9 @@
     <ClInclude Include="..\..\gui\include\gui\main_screen\graph_widget\PainterVerticalAlpha.hpp">
       <Filter>Header Files\gui\main_screen\graph_widget</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\common\Utils.hpp">
+      <Filter>Header Files\gui\common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\touchgfx.rc">

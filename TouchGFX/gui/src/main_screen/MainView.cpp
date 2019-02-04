@@ -1,6 +1,7 @@
 #include <gui/main_screen/MainView.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 #include "BitmapDatabase.hpp"
+#include <gui/common/Utils.hpp>
 
 MainView::MainView() : 
       count(MAX_Y_VALUE/2)
@@ -45,6 +46,10 @@ void MainView::setupScreen()
     /* Add graph to container after drawing lines to respect the Z-axis order */
     graphContainer.add(primaryGraph);
     
+    /* Max & Min Value on grid */
+    DrawGraphGridLine(MAX_Y_VALUE_VALID, &graphLimitsLines[0], &graphLimitYValues[0], &graphLimitYValuesbuf[0][0], Color::getColorFrom24BitRGB(0xFF, 0x00, 0x00));
+    DrawGraphGridLine(MIN_Y_VALUE_VALID, &graphLimitsLines[1], &graphLimitYValues[1], &graphLimitYValuesbuf[1][0], Color::getColorFrom24BitRGB(0xFF, 0x00, 0x00));
+    
     // Initialize count
     setCount(count);
 }
@@ -57,38 +62,43 @@ void MainView::DrawGraphGridLines(colortype color)
 {
     touchgfx_printf("GRID_NUM_LINES_Y = %d\r\n", GRID_NUM_LINES_Y);
 
-    int graphLineY = 0;
-    int expected = 0;
-    
+    int label = 0;
+
     for (int i = 0; i < GRID_NUM_LINES_Y; i++)
     {
-      expected = GRID_MIN_VALUE_Y + (i * GRID_DIV_VALUE_Y);
-      
-      touchgfx_printf("map(%d,%d,%d,%d,%d)\r\n", expected, GRID_MIN_VALUE_Y, GRID_MAX_VALUE_Y, 0, primaryGraph.getHeight());
-      
-      graphLineY = map(expected, GRID_MIN_VALUE_Y, GRID_MAX_VALUE_Y, 0, primaryGraph.getHeight());
-      
-      touchgfx_printf("Grid Set Y[%d] (%d)\r\n", i, expected);
-      touchgfx_printf("Grid Got Y[%d] (%d)\r\n", i, graphLineY);
-
-      /* Draw line */
-      graphGridLines[i].setColor(color);
-      graphGridLines[i].setPosition(primaryGraph.getX(), graphLineY, primaryGraph.getWidth(), 1);
-
-      touchgfx_printf("Actual Line[%d] (%d, %d)\r\n\r\n", i, graphGridLines[i].getX(), graphGridLines[i].getY());
-
-      /* Create label */
-      Unicode::snprintf(graphYValuesbuf[i], 5, "%d", MAX_Y_VALUE - i * MAX_Y_DELTA);
-      graphYValues[i].setTypedText(TypedText(T_GRAPH_Y_VALUE));
-      graphYValues[i].setWildcard(graphYValuesbuf[i]);
-      graphYValues[i].setColor(color);
-      graphYValues[i].resizeToCurrentText();
-      graphYValues[i].setXY(graphGridLines[i].getX() - graphYValues[i].getWidth() - 6, graphGridLines[i].getY() - (graphYValues[i].getTypedText().getFont()->getFontHeight() / 2) - 2);
-
-      /* Add line and label to container */
-      graphContainer.add(graphGridLines[i]);
-      graphContainer.add(graphYValues[i]);
+      label = GRID_MAX_VALUE_Y - (i * GRID_DIV_VALUE_Y);
+      DrawGraphGridLine(label, &graphGridLines[i], &graphYValues[i], &graphYValuesbuf[i][0], color);
     }
+}
+
+void MainView::DrawGraphGridLine(int value, Box* line, TextAreaWithOneWildcard* TextArea, Unicode::UnicodeChar* buff, colortype color)
+{
+  int graphLineY = 0;
+  int offset = 0;
+
+  offset = (primaryGraph.getHeight()/(GRID_NUM_LINES_Y)) / 2;
+  touchgfx_printf("Offset = %d\r\n", offset);
+
+  touchgfx_printf("map(%d,%d,%d,%d,%d)\r\n", value, GRID_MAX_VALUE_Y, GRID_MIN_VALUE_Y, 0, primaryGraph.getHeight());
+  graphLineY = map(value, GRID_MAX_VALUE_Y, GRID_MIN_VALUE_Y, 0 + offset, primaryGraph.getHeight() - offset);
+
+  /* Draw line */
+  line->setColor(color);
+  line->setPosition(primaryGraph.getX(), graphLineY, primaryGraph.getWidth(), 1);
+
+  touchgfx_printf("Create grid line \"%d\", (x = %d, y = %d)\r\n\r\n", value, line->getX(), line->getY());
+
+  /* Create label */
+  Unicode::snprintf(buff, 5, "%d", value);
+  TextArea->setTypedText(TypedText(T_GRAPH_Y_VALUE));
+  TextArea->setWildcard(buff);
+  TextArea->setColor(color);
+  TextArea->resizeToCurrentText();
+  TextArea->setXY(line->getX() - TextArea->getWidth() - 6, line->getY() - (TextArea->getTypedText().getFont()->getFontHeight() / 2) - 2);
+  
+  /* Add line and label to container */
+  graphContainer.add(*line);
+  graphContainer.add(*TextArea);
 }
 
 
@@ -192,7 +202,12 @@ void MainView::addValue()
 
 void MainView::handleTickEvent()
 {
-
+  tickCount++;
+  if (tickCount >= 100)
+  {
+    tickCount = 0;
+    setCount(Utils::randomNumberBetween(MIN_Y_VALUE, MAX_Y_VALUE));
+  }
 }
 
 void MainView::addGraphValue(int value)

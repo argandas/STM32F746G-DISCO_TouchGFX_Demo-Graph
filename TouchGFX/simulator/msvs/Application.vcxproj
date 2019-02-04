@@ -183,6 +183,7 @@
     <ClInclude Include="..\..\gui\include\gui\main_screen\graph_widget\GraphDots.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\main_screen\graph_widget\GraphLine.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\main_screen\graph_widget\PainterVerticalAlpha.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\common\Utils.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\touchgfx.rc"/>

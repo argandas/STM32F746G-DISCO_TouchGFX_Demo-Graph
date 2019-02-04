@@ -130,7 +130,7 @@ bool AbstractGraph::addValue(int x, int y)
     if (numPoints >= maxPoints)
     {
 #ifdef SIMULATOR
-      touchgfx_printf("Point exceed (%d >= %d)\r\n", numPoints, maxPoints);
+      // touchgfx_printf("Point exceed (%d >= %d)\r\n", numPoints, maxPoints);
 #endif
       for (int i = 0; i < maxPoints; i++)
       {
@@ -152,7 +152,7 @@ bool AbstractGraph::addValue(int x, int y)
     }
 
 #ifdef SIMULATOR
-    touchgfx_printf("Add point[%d] (%d,%d)\r\n", numPoints, x, y);
+    // touchgfx_printf("Add point[%d] (%d,%d)\r\n", numPoints, x, y);
 #endif
     
     if (numPoints == 0 || x > points[numPoints - 1].x)
