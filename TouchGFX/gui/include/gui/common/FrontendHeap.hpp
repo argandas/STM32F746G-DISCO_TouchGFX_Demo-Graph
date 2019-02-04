@@ -3,6 +3,8 @@
 
 #include <gui_generated/common/FrontendHeapBase.hpp>
 
+#define CANVAS_BUFFER_SIZE (3600)
+
 class FrontendHeap : public FrontendHeapBase
 {
 public:
@@ -61,10 +63,13 @@ public:
     FrontendApplication app;
     Model model;
 
+    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
+
 private:
     FrontendHeap() : FrontendHeapBase(presenters, views, transitions, app),
         app(model, *this)
     {
+        CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
         gotoStartScreen(app);
     }
 };

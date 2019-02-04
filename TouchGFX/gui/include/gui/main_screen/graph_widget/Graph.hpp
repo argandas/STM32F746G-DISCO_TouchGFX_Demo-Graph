@@ -32,7 +32,7 @@ using namespace touchgfx;
 class Graph : public Container
 {
 public:
-    static const int NUMBER_OF_POINTS = 17;
+    static const int NUMBER_OF_POINTS = 19;
 
     Graph();
     virtual ~Graph() { }
@@ -77,9 +77,11 @@ public:
         graphDotsBackground.setAlpha(myAlpha);
         invalidate();
     }
+
+        GraphLine graphLine;
+
 protected:
 
-    GraphLine graphLine;
     GraphBelow graphArea;
     GraphDots graphDots;
     GraphDots graphDotsBackground;

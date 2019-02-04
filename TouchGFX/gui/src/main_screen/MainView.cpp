@@ -2,7 +2,8 @@
 #include <texts/TextKeysAndLanguages.hpp>
 #include "BitmapDatabase.hpp"
 
-MainView::MainView()
+MainView::MainView() : 
+      count(MAX_Y_VALUE/2)
 {
     // Support of larger displays for this example
     // is handled by showing a black box in the
@@ -14,91 +15,121 @@ MainView::MainView()
     }
 }
 
-void MainView::setupScreen()
+int MainView::map(int x, int in_min, int in_max, int out_min, int out_max)
 {
-  // Initialize count
-    setCount(0);
-    
-    int graphXOffset = 44;
-    int graphYOffset = 10;
-    int graphWidth = 415;
-    int graphHeight = 150;
-    
-    for (int i = 0; i < NUMBER_OF_GRID_LINES; i++)
-    {
-        graphGridLines[i].setColor(Color::getColorFrom24BitRGB(0xB1, 0xB1, 0xB1));
-        graphGridLines[i].setPosition(graphXOffset, 38 + 40 * i, graphWidth, 1);
-        add(graphGridLines[i]);
+  return (x - in_min) * (out_max - out_min + 1) / (in_max - in_min + 1) + out_min;
+}
 
-        Unicode::snprintf(graphYValuesbuf[i], 5, "%d", 40 - i * 20);
-        graphYValues[i].setTypedText(TypedText(T_GRAPH_Y_VALUE));
-        graphYValues[i].setWildcard(graphYValuesbuf[i]);
-        graphYValues[i].setColor(graphGridLines[i].getColor());
-        graphYValues[i].resizeToCurrentText();
-        graphYValues[i].setXY(graphGridLines[i].getX() - graphYValues[i].getWidth() - 6, graphGridLines[i].getY() - (graphYValues[i].getTypedText().getFont()->getFontHeight() / 2) - 2);
-        add(graphYValues[i]);
-    }
-   
-    // graph.setup(440, 200, Color::getColorFrom24BitRGB(0xFF, 0xFF, 0xAC), Color::getColorFrom24BitRGB(0x24, 0x73, 0xAC));
+void MainView::setupScreen()
+{   
+    int graphXOffset = 40;
+    int graphYOffset = 0;
     
-    // Place the graph on the screen
-    graph.setXY(20, 20);
-    
-    // Set the outer dimensions and color of the graph
-    graph.setup(440, 200, Color::getColorFrom24BitRGB(0xFF, 0xFF, 0xAC), Color::getColorFrom24BitRGB(0x24, 0x73, 0xAC));
-    
-    // Set the range for the x and y axis of the graph. That is
-    // the max and min x/y value that can be displayed inside the
-    // dimension of the graph.
-    graph.setRange(0, 50, 0, 200);
-    
-    graph.setDotShape(0, 30, 5);
-    graph.setDotBackgroundShape(0, 30, 7);
+    /* Calculate Graph dimensions based on container's dimensions */
+    int graphWidth = graphContainer.getWidth() - graphXOffset - 10;
+    int graphHeight = graphContainer.getHeight() - graphYOffset;
 
-    add(graph);
+    /* Setup Graph area and dimensions */
+    primaryGraph.setXY(graphXOffset, graphYOffset);
+    primaryGraph.setup(graphWidth, graphHeight, Color::getColorFrom24BitRGB(0xF1, 0xC6, 0x1A), Color::getColorFrom24BitRGB(0x89, 0x70, 0x0E));
+    primaryGraph.setDotShape(0, 30, 5);
+    primaryGraph.setDotBackgroundShape(0, 30, 8);
+    primaryGraph.graphLine.setLineWidth(3);
+    
+    // primaryGraph.setDotsVisible(false);
+    // primaryGraph.setDotsBackgroundVisible(false);
+    // primaryGraph.setAreaVisible(false);
+    
+    DrawGraphGridLines(Color::getColorFrom24BitRGB(0xB1, 0xB1, 0xB1));
+    
+    /* Add graph to container after drawing lines to respect the Z-axis order */
+    graphContainer.add(primaryGraph);
+    
+    // Initialize count
+    setCount(count);
 }
 
 void MainView::tearDownScreen()
 {
 }
 
+void MainView::DrawGraphGridLines(colortype color)
+{
+    touchgfx_printf("GRID_NUM_LINES_Y = %d\r\n", GRID_NUM_LINES_Y);
+
+    int graphLineY = 0;
+    int expected = 0;
+    
+    for (int i = 0; i < GRID_NUM_LINES_Y; i++)
+    {
+      expected = GRID_MIN_VALUE_Y + (i * GRID_DIV_VALUE_Y);
+      
+      touchgfx_printf("map(%d,%d,%d,%d,%d)\r\n", expected, GRID_MIN_VALUE_Y, GRID_MAX_VALUE_Y, 0, primaryGraph.getHeight());
+      
+      graphLineY = map(expected, GRID_MIN_VALUE_Y, GRID_MAX_VALUE_Y, 0, primaryGraph.getHeight());
+      
+      touchgfx_printf("Grid Set Y[%d] (%d)\r\n", i, expected);
+      touchgfx_printf("Grid Got Y[%d] (%d)\r\n", i, graphLineY);
+
+      /* Draw line */
+      graphGridLines[i].setColor(color);
+      graphGridLines[i].setPosition(primaryGraph.getX(), graphLineY, primaryGraph.getWidth(), 1);
+
+      touchgfx_printf("Actual Line[%d] (%d, %d)\r\n\r\n", i, graphGridLines[i].getX(), graphGridLines[i].getY());
+
+      /* Create label */
+      Unicode::snprintf(graphYValuesbuf[i], 5, "%d", MAX_Y_VALUE - i * MAX_Y_DELTA);
+      graphYValues[i].setTypedText(TypedText(T_GRAPH_Y_VALUE));
+      graphYValues[i].setWildcard(graphYValuesbuf[i]);
+      graphYValues[i].setColor(color);
+      graphYValues[i].resizeToCurrentText();
+      graphYValues[i].setXY(graphGridLines[i].getX() - graphYValues[i].getWidth() - 6, graphGridLines[i].getY() - (graphYValues[i].getTypedText().getFont()->getFontHeight() / 2) - 2);
+
+      /* Add line and label to container */
+      graphContainer.add(graphGridLines[i]);
+      graphContainer.add(graphYValues[i]);
+    }
+}
+
+
 void MainView::increaseValue()
 {
-    if (count < 42)
+    if (count < MAX_Y_VALUE)
     {
-        count++;
+      count++;
         setCount(count);
     }
 }
 
 void MainView::decreaseValue()
 {
-    if (count > 0)
+    if (count > MIN_Y_VALUE)
     {
-        count--;
+      count--;
         setCount(count);
     }
 }
 
-void MainView::setCount(uint8_t countValue)
-{
-  
-    if (countValue >= 42)
+void MainView::setCount(int countValue)
+{   
+    if (countValue >= MAX_Y_VALUE)
     {
       setLimitEffects(false, true);
     }
-    else if (countValue == 0)
+    else if (countValue <= MIN_Y_VALUE)
     {
       setLimitEffects(true, false);
     }
     else
     {
+      count = countValue;
       setLimitEffects(true, true);
     }
     
-    Unicode::snprintf(countTxtBuffer, 3, "%d", countValue);
+    Unicode::snprintf(countTxtBuffer, COUNTTXT_SIZE, "%d", count);
     // Invalidate text area, which will result in it being redrawn in next tick.
     countTxt.invalidate();
+    addGraphValue(count);
 }
 
 void MainView::setLimitEffects(bool belowUpper, bool aboveLower)
@@ -129,12 +160,44 @@ void MainView::setLimitEffects(bool belowUpper, bool aboveLower)
 }
 
 void MainView::addValue()
-{
-  graph.addValue(graphX, count);
-  graphX += 15; 
+{  
+  static bool order = true;
+  static const uint8_t delta = 10;
+  
+  if (order == true)
+  {
+    if ((count + delta) >= MAX_Y_VALUE)
+    {
+      order = false;
+      setCount(count - delta);
+    }
+    else
+    {
+      setCount(count + delta);
+    }
+  }
+  else
+  {
+    if ((count - delta) <= MIN_Y_VALUE)
+    {
+      order = true;
+      setCount(count + delta);
+    }
+    else
+    {
+      setCount(count - delta);
+    } 
+  }
 }
 
 void MainView::handleTickEvent()
 {
 
 }
+
+void MainView::addGraphValue(int value)
+{
+  primaryGraph.addValue(graphX, map(value, MIN_Y_VALUE, MAX_Y_VALUE, 30, 370));
+  graphX += MAX_X_DELTA; 
+}
+

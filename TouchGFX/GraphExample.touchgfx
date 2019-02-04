@@ -40,6 +40,37 @@
           {
             "Components": [
               {
+                "RelativeFilename": "__designer\\blue_backgrounds_main_bg_480x272px.png",
+                "Alpha": 16,
+                "Style": "Image2",
+                "Name": "image1",
+                "X": 0,
+                "Y": -10,
+                "Width": 480,
+                "Height": 272,
+                "Type": "Image",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              }
+            ],
+            "Name": "graphContainer",
+            "X": 0,
+            "Y": 10,
+            "Width": 480,
+            "Height": 180,
+            "Type": "Container",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Components": [
+              {
                 "RelativeFilename": "counter_box.png",
                 "Alpha": 255,
                 "Name": "counterBackgroundImage",
@@ -68,7 +99,7 @@
                 "Wildcard1": {
                   "TextId": "SingleUseId1",
                   "UseBuffer": true,
-                  "BufferSize": 3
+                  "BufferSize": 5
                 },
                 "Name": "countTxt",
                 "X": 111,
@@ -157,7 +188,9 @@
               {
                 "Alpha": 255,
                 "ButtonTrigger": {
-                  "Type": "ClickButtonTrigger"
+                  "Type": "RepeatButtonTrigger",
+                  "Delay": 50,
+                  "Interval": 50
                 },
                 "ButtonStyles": [
                   {

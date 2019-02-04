@@ -16,6 +16,13 @@ MainViewBase::MainViewBase() :
     backgroundImage.setXY(0, 0);
     backgroundImage.setBitmap(Bitmap(BITMAP_BG_ID));
 
+    graphContainer.setPosition(0, 10, 480, 180);
+
+    image1.setXY(0, -10);
+    image1.setBitmap(Bitmap(BITMAP_BLUE_BACKGROUNDS_MAIN_BG_480X272PX_ID));
+    image1.setAlpha(16);
+    graphContainer.add(image1);
+
     container1.setPosition(0, 204, 480, 68);
 
     counterBackgroundImage.setXY(111, 0);
@@ -50,6 +57,8 @@ MainViewBase::MainViewBase() :
     flexBtnDown.setAction(flexButtonCallback);
     container1.add(flexBtnDown);
 
+    flexBtnSet.setDelay(3);
+    flexBtnSet.setInterval(3);
     flexBtnSet.setBitmaps(Bitmap(BITMAP_SMALL_BTN_ID), Bitmap(BITMAP_SMALL_BTN_PRESSED_ID));
     flexBtnSet.setBitmapXY(0, 0);
     flexBtnSet.setText(TypedText(T_SINGLEUSEID2));
@@ -61,6 +70,7 @@ MainViewBase::MainViewBase() :
 
     add(backgroundBox);
     add(backgroundImage);
+    add(graphContainer);
     add(container1);
 }
 

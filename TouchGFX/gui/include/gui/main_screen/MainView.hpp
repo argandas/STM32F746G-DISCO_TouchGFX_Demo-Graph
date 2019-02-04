@@ -17,25 +17,44 @@ public:
     virtual void decreaseValue();
 
     virtual void addValue();
+    
+    virtual void addGraphValue(int value);
+    
+    int map(int x, int in_min, int in_max, int out_min, int out_max);
 
-    void setCount(uint8_t countValue);
+    void setCount(int countValue);
     void setLimitEffects(bool belowUpper, bool aboveLower);
 
     void handleTickEvent();
     
+    static const int MAX_Y_VALUE = 80;
+    static const int MIN_Y_VALUE = -20;
+    static const int MAX_Y_DELTA = 20;
+    
+    static const int GRID_MAX_VALUE_Y = MAX_Y_VALUE;
+    static const int GRID_MIN_VALUE_Y = MIN_Y_VALUE;
+    static const int GRID_DIV_VALUE_Y = MAX_Y_DELTA;
+    static const int GRID_NUM_LINES_Y = ((MAX_Y_VALUE - MIN_Y_VALUE) / MAX_Y_DELTA);
+    
+    static const int MAX_Y_VALUE_VALID =  60;
+    static const int MIN_Y_VALUE_VALID = -10;
+    
+    static const int MAX_X_VALUE = 228;
+    static const int MAX_X_DELTA = MAX_X_VALUE / Graph::NUMBER_OF_POINTS;
 
 
 protected:
-    static const int NUMBER_OF_GRID_LINES = 4;
-
-    Box graphGridLines[NUMBER_OF_GRID_LINES];
+    Box graphGridLines[GRID_NUM_LINES_Y];
+    Box graphLimitsLines[2];
     
-    TextAreaWithOneWildcard graphYValues[NUMBER_OF_GRID_LINES];
-    Unicode::UnicodeChar graphYValuesbuf[NUMBER_OF_GRID_LINES][5];
+    TextAreaWithOneWildcard graphYValues[GRID_NUM_LINES_Y];
+    Unicode::UnicodeChar graphYValuesbuf[GRID_NUM_LINES_Y][5];
 
-    Graph graph;
+    Graph primaryGraph;
     
-    uint8_t count = 0;
+    void DrawGraphGridLines(colortype color);
+    
+    int count = 0;
     uint8_t graphX = 0;
 
 private:

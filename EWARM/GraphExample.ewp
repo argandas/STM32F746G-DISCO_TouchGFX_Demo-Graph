@@ -1186,6 +1186,12 @@
     </group>
     <group>
       <name>images</name>
+      <group>
+        <name>__designer</name>
+        <file>
+          <name>$PROJ_DIR$\..\TouchGFX\generated\images\src\__designer\blue_backgrounds_main_bg_480x272px.cpp</name>
+        </file>
+      </group>
       <file>
         <name>$PROJ_DIR$\..\TouchGFX\generated\images\src\background.cpp</name>
       </file>

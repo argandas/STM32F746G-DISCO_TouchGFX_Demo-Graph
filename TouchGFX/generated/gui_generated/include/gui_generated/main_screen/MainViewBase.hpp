@@ -10,9 +10,9 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/containers/Container.hpp>
+
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/containers/buttons/Buttons.hpp>
-
 class MainViewBase : public touchgfx::View<MainPresenter>
 {
 public:
@@ -49,18 +49,21 @@ protected:
      */
     touchgfx::Box backgroundBox;
     touchgfx::Image backgroundImage;
+    touchgfx::Container graphContainer;
+    touchgfx::Image image1;
+
     touchgfx::Container container1;
     touchgfx::Image counterBackgroundImage;
     touchgfx::TextAreaWithOneWildcard countTxt;
     touchgfx::IconButtonStyle< touchgfx::ImageButtonStyle< touchgfx::RepeatButtonTrigger > > flexBtnUp;
     touchgfx::IconButtonStyle< touchgfx::ImageButtonStyle< touchgfx::RepeatButtonTrigger > > flexBtnDown;
-    touchgfx::TextButtonStyle< touchgfx::ImageButtonStyle< touchgfx::ClickButtonTrigger > > flexBtnSet;
+    touchgfx::TextButtonStyle< touchgfx::ImageButtonStyle< touchgfx::RepeatButtonTrigger > > flexBtnSet;
 
 
     /*
      * Wildcard Buffers
      */
-    static const uint16_t COUNTTXT_SIZE = 3;
+    static const uint16_t COUNTTXT_SIZE = 5;
     touchgfx::Unicode::UnicodeChar countTxtBuffer[COUNTTXT_SIZE];
 
 private:

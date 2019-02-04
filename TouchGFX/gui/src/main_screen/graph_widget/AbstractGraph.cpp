@@ -129,9 +129,32 @@ bool AbstractGraph::addValue(int x, int y)
 {
     if (numPoints >= maxPoints)
     {
-        return false;
+#ifdef SIMULATOR
+      touchgfx_printf("Point exceed (%d >= %d)\r\n", numPoints, maxPoints);
+#endif
+      for (int i = 0; i < maxPoints; i++)
+      {
+        /* shift all points */        
+        // New Y value, so update the point on the graph line
+        invalidateLineFromIndex(i - 1);
+        //invalidateLineFromIndex(i);
+        points[i].y = points[i+1].y;
+        updateAndInvalidateCacheForLinesBetweenIndeces(i - 1, i + 1);
+      }
+      
+      numPoints--;
+      
+      /* Keep last point x coordinate */
+      x = points[maxPoints-1].x;
+      
+      // updateAndInvalidateCacheForLinesBetweenIndeces(0, maxPoints-1);
+      // return false;
     }
 
+#ifdef SIMULATOR
+    touchgfx_printf("Add point[%d] (%d,%d)\r\n", numPoints, x, y);
+#endif
+    
     if (numPoints == 0 || x > points[numPoints - 1].x)
     {
         // Point added at end of graph line
